@@ -14,5 +14,8 @@
 Route::view('/', 'welcome');
 Route::view('contact', 'contact');
 Route::view('a-propos', 'a-propos');
-Route::get('clients', 'ClientsController@List');
+
+// Clients
+Route::get('clients', 'ClientsController@index');
+Route::get('clients/create', 'ClientsController@create');
 Route::post('clients', 'ClientsController@store');

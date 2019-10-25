@@ -8,13 +8,19 @@ use App\Entreprise;
 
 class ClientsController extends Controller
 {
-    public function list()
+    public function index()
     {
         $clients = Client::status();
-        $entreprises = Entreprise::all();
+
     
-        return view('clients.index', compact(
-            'clients', 'entreprises'));
+        return view('clients.index', compact('clients'));
+    }
+
+    public function create()
+    {
+        $entreprises = Entreprise::all();
+
+        return view('clients.create', compact('entreprises'));
     }
 
     public function store()
