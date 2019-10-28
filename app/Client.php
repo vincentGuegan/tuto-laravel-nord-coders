@@ -8,11 +8,15 @@ class Client extends Model
 {
     protected $guarded = [];
 
+    protected $attributes = [
+        'status' => 0
+    ];
+
     public function scopeStatus($query)
     {
         return $query->where('status', 1)->get();
     }
-    
+
     public function entreprise()
     {
         return $this->belongsTo('App\Entreprise');
@@ -20,10 +24,16 @@ class Client extends Model
 
     public function getStatusAttribute($attributes)
     {
+        return $this->getStatusOptions()[$attributes];
+    }
+
+    public function getStatusOptions()
+    {
         return [
             '0' => 'Inactif',
-            '1' => 'Actif'
-        ][$attributes];
+            '1' => 'Actif',
+            '2' => 'En attente'
+        ];
     }
 }
 

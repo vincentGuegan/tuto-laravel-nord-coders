@@ -19,8 +19,9 @@ class ClientsController extends Controller
     public function create()
     {
         $entreprises = Entreprise::all();
+        $client = new Client();
 
-        return view('clients.create', compact('entreprises'));
+        return view('clients.create', compact('entreprises', 'client'));
     }
 
     public function store()
@@ -43,5 +44,33 @@ class ClientsController extends Controller
       //  $client = Client::where('id', $client)->firstOrFail();  // supprimé grâce au typage de ma fonction show
 
         return view('clients.show', compact('client'));
+    }
+
+    public function edit(Client $client)
+    {
+        $entreprises = Entreprise::all();
+
+        return view('clients.edit', compact('client', 'entreprises'));
+    }
+
+    public function update(Client $client)
+    {
+        $data = request()->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'status' => 'required|integer',
+            'entreprise_id' => 'required|integer'
+        ]);
+
+        $client->update($data);
+
+        return redirect('clients/' . $client->id);
+    }
+
+    public function destroy(Client $client)
+    {
+        $client->delete();
+
+        return redirect('clients');
     }
 }
