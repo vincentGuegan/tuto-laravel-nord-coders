@@ -17,7 +17,7 @@
                     @foreach($clients as $client)
                 <tr>
                     <th scope="row">{{ $client->id }}</th>
-                    <td>{{ $client->name }}</td>
+                    <td><a href="/tuto-laravel-nord-coders/public/clients/{{ $client->id }}">{{ $client->name }}</a></td>
                     <td>{{ $client->status }}</td>
                     <td>{{ $client->entreprise->name }}</td>
                 </tr>

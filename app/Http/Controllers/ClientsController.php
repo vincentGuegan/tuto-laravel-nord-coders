@@ -10,7 +10,7 @@ class ClientsController extends Controller
 {
     public function index()
     {
-        $clients = Client::status();
+        $clients = Client::all();
 
     
         return view('clients.index', compact('clients'));
@@ -36,5 +36,12 @@ class ClientsController extends Controller
         Client::create($data);
 
         return back();
+    }
+
+    public function show(Client $client)
+    {
+      //  $client = Client::where('id', $client)->firstOrFail();  // supprimé grâce au typage de ma fonction show
+
+        return view('clients.show', compact('client'));
     }
 }
