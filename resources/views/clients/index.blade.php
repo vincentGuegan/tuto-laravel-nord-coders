@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Clients</h1>
-<a href="/tuto-laravel-nord-coders/public/clients/create" class="btn btn-primary my-3">Nouveau client</a>
+<a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
 <ul>
             <table class="table">
                 <thead>
@@ -17,7 +17,7 @@
                     @foreach($clients as $client)
                 <tr>
                     <th scope="row">{{ $client->id }}</th>
-                    <td><a href="/tuto-laravel-nord-coders/public/clients/{{ $client->id }}">{{ $client->name }}</a></td>
+                    <td><a href="/clients/{{ $client->id }}">{{ $client->name }}</a></td>
                     <td>{{ $client->status }}</td>
                     <td>{{ $client->entreprise->name }}</td>
                 </tr>

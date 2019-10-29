@@ -16,10 +16,16 @@ Route::view('contact', 'contact');
 Route::view('a-propos', 'a-propos');
 
 // Clients
-Route::get('clients', 'ClientsController@index');
-Route::get('clients/create', 'ClientsController@create');
-Route::post('clients', 'ClientsController@store');
-Route::get('clients/{client}', 'ClientsController@show');
-Route::get('clients/{client}/edit', 'ClientsController@edit');
-Route::patch('clients/{client}', 'ClientsController@update');
-Route::delete('clients/{client}', 'ClientsController@destroy');
+// Route::get('clients', 'ClientsController@index');
+// Route::get('clients/create', 'ClientsController@create');
+// Route::post('clients', 'ClientsController@store');
+// Route::get('clients/{client}', 'ClientsController@show');
+// Route::get('clients/{client}/edit', 'ClientsController@edit');
+// Route::patch('clients/{client}', 'ClientsController@update');
+// Route::delete('clients/{client}', 'ClientsController@destroy');
+
+Route::resource('clients', 'ClientsController');
+
+// Contact
+Route::get('contact', 'ContactController@create');
+Route::post('contact', 'ContactController@store');
