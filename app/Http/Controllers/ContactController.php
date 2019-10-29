@@ -24,6 +24,6 @@ class ContactController extends Controller
         
         Mail::to('test@test.com')->send(new ContactMail($data));
 
-        return back();
+        return redirect('contact')->with('message', 'votre message a bien été envoyé.');
     }
 }

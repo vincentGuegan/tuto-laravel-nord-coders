@@ -1,8 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <h1>Contactez-nous</h1>
-<form action="/contact" method="POST">
+    @if (!session()->has('message'))
+    <form action="/contact" method="POST">
         @csrf
         <div class="form-group">
             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder ="Votre nom..." value="{{ old('name') }}">
@@ -29,5 +30,6 @@
             @enderror
             </div>
             <button type="submit" class="btn btn-primary">Envoyer mon message</button>
-</form>
+    </form>
+    @endif
 @endsection

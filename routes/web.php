@@ -29,3 +29,7 @@ Route::resource('clients', 'ClientsController');
 // Contact
 Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
