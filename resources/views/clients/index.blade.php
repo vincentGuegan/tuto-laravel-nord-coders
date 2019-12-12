@@ -2,7 +2,9 @@
 
 @section('content')
 <h1>Clients</h1>
+@can('create', App\Client::class)
 <a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
+@endcan
 <ul>
             <table class="table">
                 <thead>
@@ -17,7 +19,9 @@
                     @foreach($clients as $client)
                 <tr>
                     <th scope="row">{{ $client->id }}</th>
-                    <td><a href="/clients/{{ $client->id }}">{{ $client->name }}</a></td>
+                    <td>
+                        <a href="/clients/{{ $client->id }}">{{ $client->name }}</a>
+                    </td>
                     <td>{{ $client->status }}</td>
                     <td>{{ $client->entreprise->name }}</td>
                 </tr>
