@@ -2,9 +2,7 @@
 
 @section('content')
 <h1>Clients</h1>
-@can('create', App\Client::class)
 <a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
-@endcan
 <ul>
             <table class="table">
                 <thead>

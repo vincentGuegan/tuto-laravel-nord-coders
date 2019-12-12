@@ -26,7 +26,6 @@ class ClientsController extends Controller
 
     public function store()
     {
-        $this->authorize('create', Client::class);
         $data = request()->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
@@ -70,8 +69,6 @@ class ClientsController extends Controller
 
     public function destroy(Client $client)
     {
-        $this->authorize('delete', $client);
-
         $client->delete();
 
         return redirect('clients');
