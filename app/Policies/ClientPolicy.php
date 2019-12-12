@@ -31,7 +31,7 @@ class ClientPolicy
     public function view(User $user, Client $client)
     {
         return in_array($user->email, [
-            'admin@test.com2',
+            'admin@test.com',
         ]);
     }
 
